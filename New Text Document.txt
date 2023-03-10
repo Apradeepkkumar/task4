@@ -1,0 +1,43 @@
+1) comparison of Two obj in JSON without using order:
+
+let obj1 = {
+    name: "person 1",
+    age: 5,
+};
+let obj2 = {
+    age: 5,
+    name: "person 1",
+};
+
+let obj1String = JSON.stringify(obj1);
+let obj2String = JSON.stringify(obj2);
+
+console.log(obj1String === obj2String); // true
+
+2) using rest countries API url print all countries flag:
+
+code:
+
+var request=new XMLHttpRequest();
+request.open("GET","https://restcountries.com/v2/all");
+request.send();
+request.onload=function(){
+    var result=JSON.parse(request.response);
+    for(i=0;i<result.length;i++){
+        console.log(result[i].flag)
+    }
+}
+
+3) using rest countries API url print all countries name,region,subregion,papulation:
+
+code:
+
+var request=new XMLHttpRequest();
+request.open("GET","https://restcountries.com/v2/all");
+request.send();
+request.onload=function(){
+    var result=JSON.parse(request.response);
+    for(i=0;i<result.length;i++){
+        console.log(result[i].name,result[i].region,result[i].subregion,result[i].population)
+    }
+}
